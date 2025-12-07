@@ -1,173 +1,275 @@
-import { Building2, Radio, Clapperboard, Briefcase, UserRound, Quote } from "lucide-react";
+import {
+  Building2,
+  Radio,
+  Clapperboard,
+  Briefcase,
+  UserRound,
+  Quote,
+  Check,
+} from "lucide-react";
+
+// helper: split into 2 near-equal columns
+function twoCols<T>(arr: T[]) {
+  const mid = Math.ceil(arr.length / 2);
+  return [arr.slice(0, mid), arr.slice(mid)];
+}
 
 export default function Clients() {
-  // ——— Data mapped from https://bipl.tv/clients/ categories ———
-  // GOVERNMENT ORGANISATIONS
+  // ——— GOVERNMENT (from earlier screenshot) ———
   const government = [
-    { name: "Children’s Film Society of India (CFSI)" },
-    { name: "Directorate of Advertising & Visual Publicity (DAVP / CBC)" },
-    { name: "Doordarshan Kendra" },
-    { name: "Maharashtra State Government" },
+    { name: "CHILDREN’S FILM SOCIETY OF INDIA (CFSI)" },
+{ name: "DIRECTORATE OF ADVERTISING & VISUAL PUBLICITY (DAVP / CBC)" },
+{ name: "DOORDARSHAN KENDRA" },
+{ name: "FILMS DIVISION" },
+{ name: "MADHYA PRADESH MADHYAM" },
+{ name: "MAHARASHTRA STATE GOVERNMENT" },
+{ name: "MAULANA AZAD NATIONAL URDU UNIVERSITY (MANUU)" },
+{ name: "NFDC (NATIONAL FILM DEVELOPMENT CORPORATION)" },
+{ name: "TRIBAL RESEARCH & TRAINING INSTITUTE" },
+{ name: "VIGYAN PRASAR" },
   ];
 
-  // TELEVISION CHANNELS (mentioned across BIPL’s site/projects)
+  // ——— TELEVISION CHANNELS (exactly from your TV list screenshot) ———
   const television = [
-    { name: "TV18" },
+    { name: "BENNETT COLEMAN & CO LTD" },
+    { name: "BUSINESS BROADCAST NEWS PVT LTD" },
+    { name: "ESPN" },
+    { name: "INDIA NEWS/ INFORMATION TV PVT LTD" },
+    { name: "INX MEDIA/NEWS PVT LTD" },
+    { name: "MAHARASHTRA ONE / FEARLESS MEDIA PVT LTD" },
+    { name: "MI MARATHI MEDIA LTD" },
+    { name: "MAAY MARATHI" },
+    { name: "NETWORK 18" },
+    { name: "NDTV" },
+    { name: "REPUBLIC TV / ARG OUTLIER MEDIA PVT LTD" },
+    { name: "ZEE TELEFILMS" },
+    { name: "WALT DISNEY COMPANY (INDIA) PVT LTD" }, // corrected spelling
+    { name: "STAR PLUS" },
+    { name: "STAR NEWS / ABP NEWS" },
+    { name: "SONY TELEVISION" },
+    { name: "SAB TV" },
+    { name: "SAHARA TELEVISION NETWORK" },
+    { name: "SAHARA ONE TELEVISION NETWORK" },
+    { name: "TURNER INTERNATIONAL PVT LTD" },
+    { name: "TIMES GLOBAL BROADCASTING LTD" },
+    { name: "UTV TELEVISION NETWORK" },
+    { name: "VIACOM 18 MEDIA PVT LTD – COLORS" },
+    { name: "ZOOM ENTERTAINMENT NETWORK LTD" },
+    { name: "ZEE MEDIA" },
+    { name: "ZEE NEWS" },
+  ];
+
+  // ——— FILMMAKERS (exact from screenshot) ———
+  const filmmakers = [
+    { name: "AAMIR KHAN PRODUCTIONS" },
+    { name: "ASHUTOSH GOVARIKAR PRODUCTIONS" },
+    { name: "ASA FILMS" },
+    { name: "BANG BANG FILMS PVT LTD" },
+    { name: "BALAJI MOTION PICTURES LTD" },
+    { name: "CINEVISTAAS" },
+    { name: "CINEYUG FILMS" },
+    { name: "EROS INTERNATIONAL MEDIA LTD" },
+    { name: "EYE CANDY FILMS PVT LTD" },
+    { name: "ESSEL VISION PRODUCTION LTD" },
+    { name: "KUNDAN SHAH FILMS" },
+    { name: "KIRAN RAO PRODUCTION" },
+    { name: "MARIEGOLD FILMS" },
+    { name: "PERFECT MAGIC" },
+    { name: "RAJSHRI PRODUCTIONS" },
+    { name: "SAGAR ARTS" },
+    { name: "TRIMURTI FILMS PVT LTD" },
     { name: "UTV" },
-    { name: "Star News" },
-    { name: "Times Now" },
-    { name: "Republic TV" },
-    { name: "Zee Network" },
-    { name: "DD National" },
-    { name: "CNBC TV18" },
+    { name: "VENUS" },
+    { name: "VINOD CHOPRA PRODUCTIONS" },
   ];
 
-  // FILMMAKERS / CORPORATES / PRIVATE PRODUCERS (add as needed)
-  const filmmakers: { name: string }[] = [
-    // { name: "Producer / Director Name" },
-  ];
-  const corporates: { name: string }[] = [
-    // { name: "Corporate Brand Name" },
-  ];
-  const privateProducers: { name: string }[] = [
-    // { name: "Studio / Producer Name" },
+  // ——— CORPORATES (exact from screenshot) ———
+  const corporates = [
+    { name: "ALIYAVARJUNG INSTITUTE FOR THE HEARING HANDICAP" },
+    { name: "CAIRN ENERGY INDIA" },
+    { name: "DREDGING CORPORATION OF INDIA" },
+    { name: "HAMMER PLUS JEWELLERY LTD" },
+    { name: "INDIAN OIL CORPORATION" },
+    { name: "IEOT" },
+    { name: "KHADI & VILLAGE INDS. COMMISSION (KVIC)" },
+    { name: "LVMH WATCH & JEWELLERY" },
+    { name: "OIL AND NATURAL GAS CORPORATION (ONGC)" },
+    { name: "URMILA TRANSPORT" },
   ];
 
-  const sections: {
-    title: string;
-    icon: any;
-    items: { name: string }[];
-  }[] = [
-    { title: "Government Organisations", icon: Building2, items: government },
-    { title: "Television Channels", icon: Radio, items: television },
-    { title: "Filmmakers", icon: Clapperboard, items: filmmakers },
-    { title: "Corporates", icon: Briefcase, items: corporates },
-    { title: "Private Producers", icon: UserRound, items: privateProducers },
+  // ——— PRIVATE PRODUCERS (exact from screenshot) ———
+  const privateProducers = [
+    { name: "ADLABS FILMS PRODUCTION" },
+    { name: "B.A.G FILMS" },
+    { name: "BIG MUSIC & HOME ENTERTAINMENT" },
+    { name: "CREATIVE EYE" },
+    { name: "CINEVISTAAS" },
+    { name: "CINEMA VISION INDIA" },
+    { name: "COPPER COIN PRODUCTION HOUSE" },
+    { name: "CAB FILMS" },
+    { name: "COLOSCEUM MEDIA PVT LTD" },
+    { name: "DJ’S" },
+    { name: "DREAM SELLER FILMS" },
+    { name: "DUX CONSULTING SERVICES" },
+    { name: "FBC MEDIA PVT LTD" },
+    { name: "FRANTIC FILMS" },
+    { name: "PERCEPT D’MARK" },
+    { name: "PAUL MOVIES" },
+    { name: "PLAN MAN MARCOM" },
+    { name: "PROCAM INTERNATIONAL" },
+    { name: "OUT OF HOME MEDIA" },
+    { name: "RAA MEDIA" },
+    { name: "RAMESH DEO PRODUCTION PVT LTD" },
+    { name: "RELIANCE COMMUNICATION" },
+    { name: "ROSE MOVIES PRODUCTION" },
+    { name: "R & N TV PRODUCTIONS" },
+    { name: "RAJSHRI PRODUCTION PVT LTD" },
+    { name: "RAJSHRI MEDIA PVT LTD" },
+    { name: "RELIANCE INDUSTRIES" },
+    { name: "SANSKRUTI VISTARAK SANGH" },
+  ];
+
+  // collage images per section (update src if you use different filenames)
+  const collages: Record<
+    "government" | "television" | "filmmakers" | "corporates" | "private",
+    { src: string; alt: string }
+  > = {
+    government: {
+      src: "/public/gov-collage.jpg", // or /clients/mix_logo-1.jpg
+      alt:
+        "Government logos: MANUU, NFDC, Doordarshan, CFSI, Maharashtra State Govt, etc.",
+    },
+    television: {
+      src: "/public/Collage.jpg", // or /clients/mix-logo2.jpg
+      alt:
+        "Television logos: ABP News, Network18, NDTV, Sony, Star Plus, Viacom18, ESPN, Sony SAB",
+    },
+    filmmakers: {
+      src: "/public/film-collage.jpg", // or /clients/mix-logo3.jpg
+      alt:
+        "Filmmakers logos: Venus, Eros, EsselVision, Trimurti, Aamir Khan, UTV, Rajshri",
+    },
+    corporates: {
+      src: "/public/corp-collage.jpg", // or /clients/mix-logo4.jpg
+      alt:
+        "Corporate logos: LVMH, Cairn, KVIC, DCI, ONGC, IndianOil",
+    },
+    private: {
+      src: "/public/pp-collage.jpg", // or /clients/mix-logo5.jpg
+      alt:
+        "Private producers logos: IL&FS, Colosceum, Cinema Vision, Reliance, 120 Media, Old Monk, Optimystix, NHK, etc.",
+    },
+  };
+
+  // UI sections in the order you want to display
+  const sections = [
+    {
+      key: "government" as const,
+      title: "Government Organisations",
+      icon: Building2,
+      items: government,
+    },
+    {
+      key: "television" as const,
+      title: "Television Channels",
+      icon: Radio,
+      items: television,
+    },
+    {
+      key: "filmmakers" as const,
+      title: "Filmmakers",
+      icon: Clapperboard,
+      items: filmmakers,
+    },
+    {
+      key: "corporates" as const,
+      title: "Corporates",
+      icon: Briefcase,
+      items: corporates,
+    },
+    {
+      key: "private" as const,
+      title: "Private Producers",
+      icon: UserRound,
+      items: privateProducers,
+    },
   ];
 
   return (
     <section id="clients" className="py-24 bg-[#0D0D0D] relative overflow-hidden">
-      {/* red glow accents (same as your Studio section) */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-[#FF3131] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#FF3131] rounded-full blur-3xl"></div>
+      {/* red glow accents */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-[#FF3131] rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#FF3131] rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* eyebrow */}
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-12 h-0.5 bg-[#FF3131]"></div>
-          <span className="text-[#FF3131] text-sm font-mono tracking-widest uppercase">Our Clients</span>
+        <div className="flex items-center gap-3 mb-10">
+          <div className="w-12 h-0.5 bg-[#FF3131]" />
+          <span className="text-[#FF3131] text-sm font-mono tracking-widest uppercase">
+            Our Clients
+          </span>
         </div>
 
-        {/* heading + copy */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div>
-            <h2 className="text-5xl font-bold text-white mb-6 leading-tight">
-              Partners Across
-              <span className="block text-gray-400 text-3xl mt-2">Government, Broadcast & Industry</span>
-            </h2>
-            <p className="text-gray-400 leading-relaxed mb-8">
-              From public service programming and government campaigns to live multi-camera broadcast
-              events and brand films, we collaborate with organizations that demand premium quality,
-              rock-solid reliability, and on-time execution.
-            </p>
-            <div className="bg-[#1A1A1A] border border-gray-800 p-6">
-              <div className="flex items-start gap-3">
-                <Quote className="text-[#FF3131] shrink-0 mt-1" />
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  “BIPL delivered broadcast-ready outputs under tight timelines without compromising
-                  on quality—seamless crew coordination and control-room workflow.”
-                </p>
-              </div>
-            </div>
-          </div>
+        {/* iterate all sections with same hero-like symmetric layout */}
+        {sections.map(({ key, title, icon: Icon, items }, idx) => {
+          const [colA, colB] = twoCols(items);
+          const collage = collages[key];
+          return (
+            <div
+              key={key}
+              className={`grid lg:grid-cols-12 gap-10 items-start ${
+                idx !== 0 ? "mt-20" : ""
+              }`}
+            >
+              {/* left: title + two-column checklist */}
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-3 mb-6">
+                  
+                  <h2 className="text-white/90 tracking-wide uppercase text-sm flex items-center gap-2">
+                    <Icon size={16} className="text-[#FF3131]" />
+                    {title}
+                  </h2>
+                </div>
 
-          {/* compact highlight grid */}
-          <div className="grid grid-cols-1 gap-6">
-            {sections.slice(0, 2).map(({ title, icon: Icon, items }, i) => (
-              <div key={i} className="bg-[#1A1A1A] border border-gray-800 p-6 hover:border-[#FF3131] transition-all group">
-                <div className="flex items-start gap-4">
-                  <div className="shrink w-12 h-12 bg-[#0D0D0D] border border-gray-800 flex items-center justify-center group-hover:border-[#FF3131] transition-all">
-                    <Icon className="text-[#FF3131]" size={24} />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="text-lg font-bold text-white mb-2">{title}</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {items.map((c, j) => (
-                        <span
-                          key={`${title}-${j}`}
-                          className="text-gray-300 text-xs bg-black/30 border border-gray-800 px-2 py-1"
-                          title={c.name}
-                        >
-                          {c.name}
-                        </span>
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                  {title}
+                </h3>
+
+                <div className="grid sm:grid-cols-2 gap-x-10">
+                  {[colA, colB].map((col, cIdx) => (
+                    <ul key={cIdx} className="space-y-4">
+                      {col.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3 text-gray-200">
+                          <span className="mt-0.5 inline-flex w-6 h-6 items-center justify-center rounded-full bg-[#282828] border border-gray-700 shrink-0">
+                            <Check size={14} className="text-[#FF3131]" />
+                          </span>
+                          <span className="leading-snug">{item.name}</span>
+                        </li>
                       ))}
-                    </div>
-                  </div>
+                    </ul>
+                  ))}
                 </div>
-              </div>
-            ))}
 
-            {/* one more card combining the remaining categories if empty */}
-            <div className="bg-[#1A1A1A] border border-gray-800 p-6 hover:border-[#FF3131] transition-all group">
-              <div className="flex items-start gap-4">
-                <div className="shrink w-12 h-12 bg-[#0D0D0D] border border-gray-800 flex items-center justify-center group-hover:border-[#FF3131] transition-all">
-                  <Clapperboard className="text-[#FF3131]" size={24} />
-                </div>
-                <div className="min-w-0">
-                  <h3 className="text-lg font-bold text-white mb-2">Filmmakers, Corporates & Producers</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {[...filmmakers, ...corporates, ...privateProducers].length === 0 ? (
-                      <span className="text-gray-500 text-xs">
-                        Add names here (kept flexible to match the Clients page taxonomy).
-                      </span>
-                    ) : (
-                      [...filmmakers, ...corporates, ...privateProducers].map((c, j) => (
-                        <span
-                          key={`misc-${j}`}
-                          className="text-gray-300 text-xs bg-black/30 border border-gray-800 px-2 py-1"
-                          title={c.name}
-                        >
-                          {c.name}
-                        </span>
-                      ))
-                    )}
-                  </div>
+                
+              </div>
+
+              {/* right: collage */}
+              <div className="lg:col-span-5">
+                <div className="bg-[#1A1A1A] border border-gray-800 p-6">
+                  <img
+                    src={collage.src}
+                    alt={collage.alt}
+                    className="w-full h-auto object-contain"
+                    loading="lazy"
+                  />
+                  
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* full categorized grids */}
-        <div className="mt-16 space-y-10">
-          {sections.map(({ title, items }, i) => (
-            <div key={`sec-${i}`}>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-0.5 bg-[#FF3131]" />
-                <h3 className="text-white/90 tracking-wide uppercase text-sm">{title}</h3>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                {items.length === 0 ? (
-                  <div className="col-span-full text-gray-500 text-sm">
-                    Add entries for “{title}” in the arrays above.
-                  </div>
-                ) : (
-                  items.map((c, j) => (
-                    <div
-                      key={`${title}-${j}`}
-                      className="bg-[#1A1A1A] border border-gray-800 hover:border-[#FF3131]/70 transition-all p-5 flex items-center justify-center text-center"
-                      title={c.name}
-                    >
-                      <div className="text-gray-300 text-sm leading-snug">{c.name}</div>
-                    </div>
-                  ))
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );

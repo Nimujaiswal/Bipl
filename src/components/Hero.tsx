@@ -12,11 +12,11 @@ export default function Hero() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-40"
+        className="absolute inset-0 w-full h-full object-cover opacity-50"
       />
 
       {/* Dark Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0D0D0D]/80 to-[#1A1A1A]/90"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0D0D0D]/70 to-[#1A1A1A]/90"></div>
 
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FF3131] to-transparent opacity-50"></div>
       <div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-transparent via-[#FF3131] to-transparent opacity-30"></div>
