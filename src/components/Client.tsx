@@ -4,7 +4,6 @@ import {
   Clapperboard,
   Briefcase,
   UserRound,
-  Quote,
   Check,
 } from "lucide-react";
 
