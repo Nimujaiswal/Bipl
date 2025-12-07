@@ -1,0 +1,31 @@
+/* Tailwind v4: single import */
+@import "tailwindcss";
+
+/* Your design tokens (this makes bg-bg, text-text, etc. real utilities) */
+@theme {
+  --color-bg:       #0f1111;
+  --color-panel:    #171a1b;
+  --color-line:     #242829;
+  --color-text:     #e9eae9;
+  --color-mute:     #a8adab;
+  --color-primary:  #2a7a55;
+  --color-primary2: #3a8c6b;
+
+  --radius-xl:  0.9rem;
+  --radius-2xl: 1.25rem;
+
+  --shadow-subtle: 0 1px 0 rgba(255,255,255,0.03), 0 8px 24px rgba(0,0,0,0.35);
+  --shadow-glow:   0 0 0 1px rgba(58,140,107,0.25), 0 10px 30px rgba(58,140,107,0.15);
+
+  --spacing-section: 6rem;
+}
+
+/* Optional custom utilities for the shadows (so you can use shadow-subtle / shadow-glow classes) */
+@utility shadow-subtle { box-shadow: var(--shadow-subtle); }
+@utility shadow-glow   { box-shadow: var(--shadow-glow); }
+
+/* Base – now your tokens will resolve */
+html, body { @apply bg-bg text-text antialiased; }
+
+/* Helpers (optional) */
+.section { padding-block: var(--spacing-section); }
