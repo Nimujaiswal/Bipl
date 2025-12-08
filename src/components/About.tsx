@@ -12,7 +12,7 @@ export default function About() {
     <section id="about" className="py-24 bg-[#1A1A1A] relative overflow-hidden">
       {/* Background Pattern - Changed green dot logic to red */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#EF4444_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#EF4444_1px,transparent_1px)] bg-size-[40px_40px]"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">

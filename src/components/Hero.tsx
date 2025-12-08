@@ -12,15 +12,15 @@ export default function Hero() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-50"
+        className="absolute inset-0 w-full h-full object-cover opacity-70"
       />
 
       {/* Dark Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0D0D0D]/70 to-[#1A1A1A]/90"></div>
+      <div className="absolute inset-0 bg-linear-to-b from-black via-[#0D0D0D]/70 to-[#1A1A1A]/90"></div>
 
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FF3131] to-transparent opacity-50"></div>
-      <div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-transparent via-[#FF3131] to-transparent opacity-30"></div>
-      <div className="absolute bottom-0 left-0 w-1 h-full bg-gradient-to-b from-transparent via-[#FF3131] to-transparent opacity-30"></div>
+      <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-[#FF3131] to-transparent opacity-50"></div>
+      <div className="absolute top-0 right-0 w-1 h-full bg-linear-to-b from-transparent via-[#FF3131] to-transparent opacity-30"></div>
+      <div className="absolute bottom-0 left-0 w-1 h-full bg-linear-to-b from-transparent via-[#FF3131] to-transparent opacity-30"></div>
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
@@ -33,8 +33,8 @@ export default function Hero() {
         </div>
 
         <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight leading-none">
-          End-to-End Production
-          <span className="block text-gray-400">& Broadcast Solutions</span>
+          Welcome to Brodcast
+          <span className="block text-white"> Imaging Pvt.Ltd.</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -43,12 +43,15 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
 
-          <button className="group relative px-8 py-4 bg-transparent border border-[#FF3131] text-[#FF3131] font-semibold rounded-none overflow-hidden transition-all hover:bg-[#FF3131] hover:text-black">
-            <span className="relative z-10 flex items-center gap-2">
-              <Film size={20} />
-              Our Work
-            </span>
-          </button>
+         <Link to="/portfolio">
+  <button className="group relative px-8 py-4 bg-transparent border border-[#FF3131] text-[#FF3131] font-semibold rounded-none overflow-hidden transition-all hover:bg-[#FF3131] hover:text-black">
+    <span className="relative z-10 flex items-center gap-2">
+      <Film size={20} />
+      Our Work
+    </span>
+  </button>
+</Link>
+
 
           {/* ✅ Contact Button Linked (UI unchanged) */}
           <Link to="/contact">

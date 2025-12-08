@@ -2,9 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Services from './components/Services';
 import Studio from './components/Studio';
-import Equipment from './components/Equipment';
+import Team from './components/Team';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -16,10 +15,7 @@ function HomeLayout() {
       <Navbar />
       <Hero />
       <About />
-      <Services />
       <Studio />
-      <Equipment />
-      <Portfolio />
       <Footer />
     </div>
   );
@@ -35,6 +31,16 @@ function ClientsLayout() {
   );
 }
 
+function PortfolioLayout() {
+  return (
+    <div className="min-h-screen bg-[#0D0D0D]">
+      <Navbar />
+      <Portfolio />
+      <Footer />
+    </div>
+  );
+}
+
 function ContactLayout() {
   return (
     <div className="min-h-screen bg-[#0D0D0D]">
@@ -45,14 +51,25 @@ function ContactLayout() {
   );
 }
 
-function App() {
+function TeamLayout() {
+  return (
+    <div className="min-h-screen bg-[#0D0D0D]">
+      <Navbar />
+      <Team />
+      <Footer />
+    </div>
+  );
+}
+
+export default function App() {
   return (
     <Routes>
       <Route path="/" element={<HomeLayout />} />
       <Route path="/clients" element={<ClientsLayout />} />
+      <Route path="/portfolio" element={<PortfolioLayout />} /> {/* ✅ ADDED */}
       <Route path="/contact" element={<ContactLayout />} />
+      <Route path="/team" element={<TeamLayout />} />
+
     </Routes>
   );
 }
-
-export default App;
