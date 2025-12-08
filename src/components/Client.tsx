@@ -134,22 +134,22 @@ export default function Clients() {
     { src: string; alt: string }
   > = {
     government: {
-      src: "/public/gov-collage.jpg", // or /clients/mix_logo-1.jpg
+      src: "/gov-collage.jpg", // or /clients/mix_logo-1.jpg
       alt:
         "Government logos: MANUU, NFDC, Doordarshan, CFSI, Maharashtra State Govt, etc.",
     },
     television: {
-      src: "/public/Collage.jpg", // or /clients/mix-logo2.jpg
+      src: "/Collage.jpg", // or /clients/mix-logo2.jpg
       alt:
         "Television logos: ABP News, Network18, NDTV, Sony, Star Plus, Viacom18, ESPN, Sony SAB",
     },
     filmmakers: {
-      src: "/public/film-collage.jpg", // or /clients/mix-logo3.jpg
+      src: "/film-collage.jpg", // or /clients/mix-logo3.jpg
       alt:
         "Filmmakers logos: Venus, Eros, EsselVision, Trimurti, Aamir Khan, UTV, Rajshri",
     },
     corporates: {
-      src: "/public/corp-collage.jpg", // or /clients/mix-logo4.jpg
+      src: "/corp-collage.jpg", // or /clients/mix-logo4.jpg
       alt:
         "Corporate logos: LVMH, Cairn, KVIC, DCI, ONGC, IndianOil",
     },
