@@ -154,7 +154,7 @@ export default function Clients() {
         "Corporate logos: LVMH, Cairn, KVIC, DCI, ONGC, IndianOil",
     },
     private: {
-      src: "/public/pp-collage.jpg", // or /clients/mix-logo5.jpg
+      src: "/pp-collage.jpg", // or /clients/mix-logo5.jpg
       alt:
         "Private producers logos: IL&FS, Colosceum, Cinema Vision, Reliance, 120 Media, Old Monk, Optimystix, NHK, etc.",
     },
