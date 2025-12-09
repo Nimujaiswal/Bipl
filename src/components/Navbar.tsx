@@ -18,7 +18,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white backdrop-blur-md border-b border-gray-300">
+    <nav className="fixed top-0 w-full z-50 bg-black backdrop-blur-md border-b border-gray-800">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
@@ -33,17 +33,17 @@ export default function Navbar() {
               if (item === 'Services') {
                 return (
                   <div key="Services" className="relative group">
-                    <button className="text-gray-800 hover:text-[#FF3131] transition-colors text-sm font-medium tracking-wide">
+                    <button className="text-gray-200 hover:text-[#FF3131] transition-colors text-sm font-medium tracking-wide">
                       Services
                     </button>
 
                     {/* Dropdown */}
-                    <div className="absolute left-0 mt-2 w-56 bg-white border border-gray-300 rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 shadow-lg overflow-hidden z-50">
+                    <div className="absolute left-0 mt-2 w-56 bg-black border border-gray-700 rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 shadow-lg overflow-hidden z-50">
                       {services.map((s) => (
                         <a
                           key={s.label}
                           href={isHome ? s.href : `/${s.href}`}
-                          className="block px-4 py-2.5 text-gray-800 hover:bg-[#FF3131] hover:text-white transition-all text-sm"
+                          className="block px-4 py-2.5 text-gray-200 hover:bg-[#FF3131] hover:text-white transition-all text-sm"
                         >
                           {s.label}
                         </a>
@@ -55,13 +55,13 @@ export default function Navbar() {
                 );
               }
 
-              // MODIFIED: Added 'Portfolio' to this check so it acts as a Route Page
-              if (item === 'Clients' || item === 'Contact' || item === 'Portfolio' || item === 'Team' ) {
+              // Route Pages
+              if (item === 'Clients' || item === 'Contact' || item === 'Portfolio' || item === 'Team') {
                 return (
                   <Link
                     key={item}
                     to={`/${item.toLowerCase()}`}
-                    className="text-gray-800 hover:text-[#FF3131] transition-colors text-sm font-medium tracking-wide relative group"
+                    className="text-gray-200 hover:text-[#FF3131] transition-colors text-sm font-medium tracking-wide relative group"
                   >
                     {item}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FF3131] group-hover:w-full transition-all duration-300"></span>
@@ -69,12 +69,12 @@ export default function Navbar() {
                 );
               }
 
-              // Other section links (About, Studio) stay as anchors
+              // Section scroll links
               return isHome ? (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="text-gray-800 hover:text-[#FF3131] transition-colors text-sm font-medium tracking-wide relative group"
+                  className="text-gray-200 hover:text-[#FF3131] transition-colors text-sm font-medium tracking-wide relative group"
                 >
                   {item}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FF3131] group-hover:w-full transition-all duration-300"></span>
@@ -83,7 +83,7 @@ export default function Navbar() {
                 <Link
                   key={item}
                   to={`/#${item.toLowerCase()}`}
-                  className="text-gray-800 hover:text-[#FF3131] transition-colors text-sm font-medium tracking-wide relative group"
+                  className="text-gray-200 hover:text-[#FF3131] transition-colors text-sm font-medium tracking-wide relative group"
                 >
                   {item}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FF3131] group-hover:w-full transition-all duration-300"></span>
@@ -93,7 +93,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-gray-800 hover:text-[#FF3131]" onClick={() => setIsOpen(!isOpen)}>
+          <button className="md:hidden text-gray-200 hover:text-[#FF3131]" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -101,14 +101,14 @@ export default function Navbar() {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-300">
+        <div className="md:hidden bg-black border-t border-gray-800">
           <div className="px-6 py-4 space-y-2">
             {navItems.map((item) => {
               if (item === 'Services') {
                 return (
-                  <div key="m-Services" className="border-b border-gray-200 pb-2">
+                  <div key="m-Services" className="border-b border-gray-700 pb-2">
                     <button
-                      className="w-full text-left text-gray-800 hover:text-[#FF3131] text-sm font-medium py-2"
+                      className="w-full text-left text-gray-200 hover:text-[#FF3131] text-sm font-medium py-2"
                       onClick={() => setServicesOpen(!servicesOpen)}
                     >
                       Services
@@ -120,7 +120,7 @@ export default function Navbar() {
                           <a
                             key={s.label}
                             href={isHome ? s.href : `/${s.href}`}
-                            className="block text-gray-700 hover:text-[#FF3131] text-sm py-1.5"
+                            className="block text-gray-300 hover:text-[#FF3131] text-sm py-1.5"
                             onClick={() => setIsOpen(false)}
                           >
                             {s.label}
@@ -132,13 +132,13 @@ export default function Navbar() {
                 );
               }
 
-              // MODIFIED: Added 'Portfolio' here as well
-              if (item === 'Clients' || item === 'Contact' || item === 'Portfolio') {
+              // Route pages mobile
+              if (item === 'Clients' || item === 'Contact' || item === 'Portfolio' || item === 'Team') {
                 return (
                   <Link
                     key={`m-${item}`}
                     to={`/${item.toLowerCase()}`}
-                    className="block text-gray-800 hover:text-[#FF3131] text-sm font-medium py-2"
+                    className="block text-gray-200 hover:text-[#FF3131] text-sm font-medium py-2"
                     onClick={() => setIsOpen(false)}
                   >
                     {item}
@@ -146,12 +146,12 @@ export default function Navbar() {
                 );
               }
 
-              // Mobile section links (About, Studio)
+              // Section links mobile
               return isHome ? (
                 <a
                   key={`m-${item}`}
                   href={`#${item.toLowerCase()}`}
-                  className="block text-gray-800 hover:text-[#FF3131] text-sm font-medium py-2"
+                  className="block text-gray-200 hover:text-[#FF3131] text-sm font-medium py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {item}
@@ -160,7 +160,7 @@ export default function Navbar() {
                 <Link
                   key={`m-${item}`}
                   to={`/#${item.toLowerCase()}`}
-                  className="block text-gray-800 hover:text-[#FF3131] text-sm font-medium py-2"
+                  className="block text-gray-200 hover:text-[#FF3131] text-sm font-medium py-2"
                   onClick={() => setIsOpen(false)}
                 >
                   {item}
